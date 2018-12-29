@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #final{
+                width: 49px;
+
+        height: 25px;
+
+        border: none;
+
+        padding: 6px;
+
+        background: #fff;
+
+        color: #000;
+
+        font-size: 20px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        
+            <div class="one" style="margin-top:100px;">
+               <form action="">
+                   Price 
+                <input type="number" id="price" name="price" placeholder="1" data-validation="length" data-validation-length="min1" min="1"> <br>
+                
+                <input type="hidden" name="another" value="80"> <br>
+                
+                Final
+                
+                <input type="text" id="final" name="final" placeholder="80" disabled>
+                
+               </form>
+                
+            </div>
+    
+        <script src="jquery.js"></script>
+        <script src="jquery.form-validator.min.js"></script>
+        <script>
+          $.validate({
+            lang: 'es'
+          });
+        </script>
+        
+        <script type="text/javascript">
+            $('input[name="price"]').on('change keyup click', function() {
+                var a = $('input[name="another"]').val();
+                var b = $(this).val();
+                $('input[name="final"]').val(a * b);
+            });
+        </script>
+    </body>
+</html>
